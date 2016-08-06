@@ -1,0 +1,38 @@
+.App {
+  text-align: center;
+  width: 600px;
+  margin: 0 auto;
+  border-radius: 5px;
+  box-shadow: 0px 0px 12px black;
+}
+
+.App .submit-button {
+  width: 75px;
+  height: 20px;
+  border: 1px solid black;
+  border-radius: 6px;
+  margin: 0 auto;
+  cursor: pointer;
+}
+
+.App .user-score {
+  display: none;
+  width: 75px;
+  height: 20px;
+}
+
+.App input {
+  display: block;
+  width: 150px;
+  height: 25px;
+  font-size: 1.2em;
+}
+
+.App .hunt-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.App .question {
+  align-self: flex-start;
+}
