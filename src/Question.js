@@ -2,22 +2,29 @@ import React from 'react';
 
 export default function(props){
 
-  let style = {},
-      answerStyle = {display: 'none'};
+  let answeredClass = '';
+  let value = (props.hovered || !props.submitted) ? props.userGuess : props.answer;
+  let focus = false;
 
   if (props.submitted) {
-    answerStyle = {display: 'inline-block'};
-    style = props.correct ? {backgroundColor:'#30C205'} : {backgroundColor:'#C20000'}
+    answeredClass = props.correct ? 'full-chest chest' : 'empty-chest chest';
   }
+
     return (
-      <div className="hunt-container" style={style}>
+      <div className="hunt-container">
         <p className="question">{props.question}</p>
-        <input 
+        <input
+        className={props.submitted && !props.hovered ? 'finished-input': ''}
+        id='user-input' 
+        readOnly={props.submitted ? true : false}
         type="text"
-        value={props.userGuess} 
+        onMouseEnter={(e)=>{props.toggleHover(props.ind, true)}}
+        onMouseLeave={(e)=>{props.toggleHover(props.ind, false)}}
+        value={value} 
         onChange={(e)=>{props.changeGuess(props.ind, e.target.value)}}
         />
-        <p style={answerStyle}>The Answer is: {props.answer}!</p>
+          <div className={answeredClass}>
+          </div>
       </div>
     )
 }
